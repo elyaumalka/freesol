@@ -1,0 +1,182 @@
+@font-face {
+  font-family: 'Discovery_Fs';
+  src: url('/fonts/Discovery_Fs-VF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Discovery';
+  src: url('/fonts/Discovery_Fs-VF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FreeSol Design System - RTL Hebrew Interface */
+
+@layer base {
+  :root {
+    /* Main Brand Colors */
+    --burgundy: 352 54% 32%; /* #722F37 */
+    --gold: 38 56% 56%; /* #D4A84B */
+    
+    /* Background Colors */
+    --background: 0 0% 96%; /* #F5F5F5 */
+    --foreground: 0 0% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    /* Primary = Burgundy */
+    --primary: 352 54% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
+
+    /* Accent = Gold */
+    --accent: 38 56% 56%;
+    --accent-foreground: 0 0% 20%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 352 54% 32%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 332 52% 24%; /* #672148 */
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 327 37% 24%; /* #742551 */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 100%; /* #FFFFFF - active item */
+    --sidebar-accent-foreground: 332 52% 24%;
+    --sidebar-border: 332 52% 30%;
+    --sidebar-ring: 38 56% 56%;
+
+    /* Customer Card Gradient */
+    --gradient-start: 174 62% 47%; /* Teal */
+    --gradient-end: 199 89% 48%; /* Blue */
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 90%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 352 54% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 90%;
+
+    --accent: 38 56% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 60%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 352 54% 40%;
+
+    --sidebar-background: 0 0% 12%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 352 54% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 38 56% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 352 54% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  body {
+    @apply bg-background text-foreground font-discovery;
+  }
+}
+
+@layer utilities {
+  .gradient-customer-card {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  }
+}
+
+/* Responsive Typography System - vw based */
+:root {
+  /* Base font sizes using vw for proportional scaling */
+  --text-xs: clamp(10px, 0.7vw, 14px);
+  --text-sm: clamp(12px, 0.85vw, 16px);
+  --text-base: clamp(14px, 1vw, 20px);
+  --text-lg: clamp(16px, 1.2vw, 24px);
+  --text-xl: clamp(18px, 1.4vw, 28px);
+  --text-2xl: clamp(20px, 1.6vw, 32px);
+  --text-3xl: clamp(24px, 2vw, 40px);
+  --text-4xl: clamp(28px, 2.5vw, 50px);
+  --text-5xl: clamp(32px, 3vw, 60px);
+  
+  /* Spacing using vw */
+  --space-xs: clamp(4px, 0.3vw, 8px);
+  --space-sm: clamp(8px, 0.5vw, 12px);
+  --space-md: clamp(12px, 0.8vw, 20px);
+  --space-lg: clamp(16px, 1.2vw, 30px);
+  --space-xl: clamp(24px, 1.8vw, 45px);
+  --space-2xl: clamp(32px, 2.5vw, 60px);
+  
+  /* Border radius using vw */
+  --radius-sm: clamp(8px, 0.5vw, 12px);
+  --radius-md: clamp(12px, 0.8vw, 20px);
+  --radius-lg: clamp(16px, 1.2vw, 30px);
+  --radius-xl: clamp(20px, 1.5vw, 40px);
+  --radius-full: 9999px;
+  
+  /* Icon sizes using vw */
+  --icon-xs: clamp(12px, 0.8vw, 16px);
+  --icon-sm: clamp(16px, 1vw, 20px);
+  --icon-md: clamp(20px, 1.3vw, 28px);
+  --icon-lg: clamp(28px, 1.8vw, 40px);
+  --icon-xl: clamp(40px, 2.5vw, 60px);
+  
+  /* Button heights using vh */
+  --btn-sm: clamp(32px, 4vh, 45px);
+  --btn-md: clamp(40px, 5vh, 60px);
+  --btn-lg: clamp(50px, 6vh, 80px);
+  --btn-xl: clamp(60px, 8vh, 100px);
+}
